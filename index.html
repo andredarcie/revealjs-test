@@ -4,91 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fullscreen Slides</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .slides-container {
-      display: none;
-      flex-direction: column;
-      scroll-snap-type: y mandatory;
-      overflow-y: scroll;
-      height: 100vh;
-    }
-
-    .slide {
-      flex: 0 0 100%;
-      height: 100vh;
-      width: 100%;
-      scroll-snap-align: start;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: white;
-    }
-
-    .slide:nth-child(1) { background: #3498db; }
-    .slide:nth-child(2) {
-      background: black;
-      position: relative;
-    }
-
-    .slide:nth-child(2) img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-
-    .slide:nth-child(3) { background: #e74c3c; }
-    .slide:nth-child(4) { background: #9b59b6; }
-
-    .fullscreen-button-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #333;
-      color: white;
-      flex-direction: column;
-    }
-
-    .fullscreen-button {
-      background: #3498db;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .fullscreen-button:disabled {
-      background: #aaa;
-      cursor: not-allowed;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="fullscreen-button-container">
-    <h1>Bem-vindo</h1>
+    <h1>Jornada pelo Nordeste</h1>
+    <p>Para uma melhor experiência, veja em tela cheia.</p>
     <button id="fullscreen-button" class="fullscreen-button">Ir para Tela Cheia</button>
   </div>
 
   <div class="slides-container">
     <div class="slide">Slide 1</div>
-    <div class="slide">
-      <img src="images/por-do-sol.jpeg" alt="Pôr do Sol">
+    <div class="slide slide-image-container">
+      <img src="images/por-do-sol.jpeg" alt="Pôr do Sol" class="slide-image">
     </div>
     <div class="slide">Slide 3</div>
     <div class="slide">Slide 4</div>
