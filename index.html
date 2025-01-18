@@ -13,7 +13,7 @@
     }
 
     .slides-container {
-      display: flex;
+      display: none;
       flex-direction: column;
       scroll-snap-type: y mandatory;
       overflow-y: scroll;
@@ -33,28 +33,58 @@
     }
 
     .slide:nth-child(1) { background: #3498db; }
-    .slide:nth-child(2) { 
-      background: black; 
+    .slide:nth-child(2) {
+      background: black;
       position: relative;
     }
 
     .slide:nth-child(2) img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
 
     .slide:nth-child(3) { background: #e74c3c; }
     .slide:nth-child(4) { background: #9b59b6; }
+
+    .fullscreen-button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #333;
+      color: white;
+      flex-direction: column;
+    }
+
+    .fullscreen-button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .fullscreen-button:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
   </style>
 </head>
 <body>
+  <div class="fullscreen-button-container">
+    <h1>Bem-vindo</h1>
+    <button id="fullscreen-button" class="fullscreen-button">Ir para Tela Cheia</button>
+  </div>
+
   <div class="slides-container">
     <div class="slide">Slide 1</div>
     <div class="slide">
@@ -63,5 +93,26 @@
     <div class="slide">Slide 3</div>
     <div class="slide">Slide 4</div>
   </div>
+
+  <script>
+    const fullscreenButton = document.getElementById('fullscreen-button');
+    const slidesContainer = document.querySelector('.slides-container');
+    const buttonContainer = document.querySelector('.fullscreen-button-container');
+
+    fullscreenButton.addEventListener('click', () => {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen()
+          .then(() => {
+            buttonContainer.style.display = 'none';
+            slidesContainer.style.display = 'flex';
+          })
+          .catch(err => {
+            console.error(`Error trying to enable fullscreen: ${err.message}`);
+          });
+      } else {
+        alert('Fullscreen API is not supported by your browser.');
+      }
+    });
+  </script>
 </body>
 </html>
