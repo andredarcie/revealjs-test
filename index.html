@@ -1,61 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullscreen Slides</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
 
-		<title>reveal.js</title>
+    .slides-container {
+      display: flex;
+      flex-direction: column;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
+    }
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/solarized.css">
+    .slide {
+      flex: 0 0 100%;
+      height: 100vh;
+      width: 100%;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+    }
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Teresina no Piaui</section>
-				<section
-					data-markdown="example.md"
-					data-separator="^\n\n\n"
-					data-separator-vertical="^\n\n"
-					data-separator-notes="^Note:"
-					data-charset="utf-8"
-					>
-					<!--
-							Note that Windows uses `\r\n` instead of `\n` as its linefeed character.
-							For a regex that supports all operating systems, use `\r?\n` instead of `\n`.
-						-->
-					
-				</section>
-				<section>
-					<img
-					class="fragment fade-out"
-					data-fragment-index="0"
-					src="images/por-do-sol.jpeg"
-					width="500"
-					height="600"
-				  />
-				</section>
-			</div>
-		</div>
+    .slide:nth-child(1) { background: #3498db; }
+    .slide:nth-child(2) { 
+      background: black; 
+      position: relative;
+    }
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+    .slide:nth-child(2) img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Garante que toda a imagem seja exibida sem cortes */
+      background-color: black; /* Preenche o espaço restante com cor de fundo */
+    }
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+    .slide:nth-child(3) { background: #e74c3c; }
+    .slide:nth-child(4) { background: #9b59b6; }
+  </style>
+</head>
+<body>
+  <div class="slides-container">
+    <div class="slide">Slide 1</div>
+    <div class="slide">
+      <img src="images/por-do-sol.jpeg" alt="Pôr do Sol">
+    </div>
+    <div class="slide">Slide 3</div>
+    <div class="slide">Slide 4</div>
+  </div>
+</body>
 </html>
