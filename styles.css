@@ -8,11 +8,11 @@ body, html {
     font-size: 4vh;
   }
 
-  @media (max-width: 768px) {
-    body, html {
-      font-size: 2vh;
-    }
+@media (max-width: 768px) {
+  body, html {
+    font-size: 2vh;
   }
+}
 
 .slides-container {
   display: none;
