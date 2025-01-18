@@ -8,12 +8,6 @@ body, html {
     font-size: 4vh;
   }
 
-@media (max-width: 768px) {
-  body, html {
-    font-size: 3vh;
-  }
-}
-
 .slides-container {
   display: none;
   flex-direction: column;
