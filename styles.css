@@ -10,7 +10,7 @@ body, html {
 
 @media (max-width: 768px) {
   body, html {
-    font-size: 2.5rem; /* Aumente o tamanho da fonte para celulares */
+    font-size: 1.8rem; /* Aumente o tamanho da fonte para celulares */
   }
 }
 
