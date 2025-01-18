@@ -74,3 +74,18 @@ body, html {
   .slide-text p {
     margin: 0;
   }
+
+  /* Ajuste específico para telas menores */
+@media (max-width: 768px) {
+  .slide {
+      font-size: 4.5vw; /* Reduz um pouco o tamanho da fonte */
+  }
+
+  h1 {
+      font-size: 6vw; /* Título ligeiramente menor */
+  }
+
+  p {
+      font-size: 4.5vw; /* Ajuste no tamanho dos parágrafos */
+  }
+}
