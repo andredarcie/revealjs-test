@@ -20,7 +20,6 @@ body, html {
     height: 100vh;
     width: 100%;
     scroll-snap-align: start;
-    display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
@@ -65,4 +64,13 @@ body, html {
   .fullscreen-button:disabled {
     background: #aaa;
     cursor: not-allowed;
+  }
+
+  .slide-text {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .slide-text p {
+    margin: 0;
   }
